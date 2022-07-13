@@ -18,10 +18,17 @@ C1 = 10e-6;
 C2 = 0.1e-6;
 
 syms s;
-h =  / ();
-H = ilaplace(h);
+nume = 1/(C1*C2*R1*R2);
+deno = s^2 + s*(1/(C1*R1) + 1/(C1*R2)) + 1/(C1*C2*R1*R2);
+
+
+h =  nume / deno;
+
+H = ilaplace(h);    %IMPULSO
+D = ilaplace(h/s);  %Escalon
 
 disp(" Usando pretty ")
 pretty(H)
+pretty(D)
 
 
