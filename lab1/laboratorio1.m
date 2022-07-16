@@ -20,15 +20,41 @@ C2 = 0.1e-6;
 syms s;
 nume = 1/(C1*C2*R1*R2);
 deno = s^2 + s*(1/(C1*R1) + 1/(C1*R2)) + 1/(C1*C2*R1*R2);
-
-
 h =  nume / deno;
+
+num = 1/(C1*C2*R1*R2);
+den = [1, 1/(C1*R1) + 1/(C1*R2), 1/(C1*C2*R1*R2)] ;
+hh = tf(num, den);
 
 H = ilaplace(h);    %IMPULSO
 D = ilaplace(h/s);  %Escalon
 
-disp(" Usando pretty ")
+disp(" Funcion IMPULSO")
 pretty(H)
+disp(" Funcion ESCALON")
 pretty(D)
 
 
+%empiezo a hacer grafica
+figure('Name', 'figura 1 CRIS_PAT','NumberTitle','off');    %ventana
+%Encabezado
+hi = sgtitle('lab1 , CrisPat 19218, 1IE3036, sección:21');
+hi.FontSize = 18;
+hi.Color = 'r';
+hi.FontName = 'verdana';
+
+subplot(2,1,1)
+fplot(H, [0, 0.5]); %fplot, nos sirve para funciones simbolicas no para numeros
+grid on
+title('Respuesta Impulso');
+ylabel('voltaje');
+xlabel('tiempo');
+
+subplot(2,1,2)
+t = linspace(0, 0.5, 1000);
+y = double(subs(D));
+plot(t, y); %fplot, nos sirve para funciones simbolicas no para numeros
+grid on
+title('Respuesta Escalon');
+ylabel('voltaje');
+xlabel('tiempo');
