@@ -7,7 +7,7 @@
 %% Primera Parte: Análisis y Modelado
 
 %% Segunda parte:Simulación y estudio del circuito
-caso = 6;
+caso = 7;
 
 switch caso
     case 1
@@ -42,14 +42,14 @@ switch caso
         %sexto caso,Polos reales iguales (aprox -15.64)
         R1 = 6e3; R2 =6e3;
         C1 = 10e-6; C2 = 10e-6;
-        %R1 y R2 deben ser iguales para tener tener multiplicidad 2 los
-        %polos
+        
     case 7
         %septimo caso,Polos reales distintos
-        R1 = 30e3; R2 =30e3;
+        %el valor absoluto de uno de los polos debe ser menor a 20
+        %y la distancia entre polos debe ser mayor a 500
+        R1 = 10e3; R2 =110;
         C1 = 10e-6; C2 = 10e-6;
-        %R1 y R2 deben ser iguales para tener tener multiplicidad 2 los
-        %polos
+        
 end
 a = 1/(R1*R2*C1*C2);
 b = (R1+R2)/(R1*R2*C1);
@@ -58,5 +58,5 @@ c = 1/(R1*R2*C1*C2);
 G1 = tf(a,[1,b,c]);
 p = pole(G1);
 
-%step(5*G1);
-pzplot(G1);
+step(5*G1);
+%pzplot(G1);
