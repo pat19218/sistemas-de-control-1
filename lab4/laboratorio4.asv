@@ -7,7 +7,7 @@
 %% Primera Parte: Análisis y Modelado
 
 %% Segunda parte:Simulación y estudio del circuito
-caso = 2;
+caso = 6;
 
 switch caso
     case 1
@@ -15,15 +15,34 @@ switch caso
         R1 =4.7e3; R2 =10e3;
         C1 = 10e-6; C2 = 0.1e-6;
     case 2
-        %Primer caso, Polos complejos conjugados, más cercanos al eje real
+        %segundo caso, Polos complejos conjugados, más cercanos al eje real
         R1 =4.7e3; R2 =10e3;
         C1 = 10e-6; C2 = 0.2e-6;
-        %mientras mas grande c2, mas cerca al eje real
+        %mientras mas grande c2, 
+        %mas cerca al eje real
     case 3
-        %Primer caso, Polos complejos conjugados, más cercanos al eje real
+        %Tercer caso, Polos complejos conjugados, más alejados del eje real
         R1 =4.7e3; R2 =10e3;
-        C1 = 10e-6; C2 = 0.2e-6;
-        %mientras mas grande c2, mas cerca al eje real
+        C1 = 10e-6; C2 = 0.05e-6;
+        %mientras mas pequenio c2, 
+        %mas lejos del eje real
+    case 4
+        %cuarto caso,Polos complejos conjugados más alejados del eje imaginario
+        R1 =1e3; R2 =10e3;
+        C1 = 10e-6; C2 = 0.20e-6;
+        %mientras mas pequenio R1, 
+        %mas lejos del eje imaginario
+    case 5
+        %quinto caso,Polos complejos conjugados,más cercanos al eje imaginario
+        R1 =10e3; R2 =10e3;
+        C1 = 10e-6; C2 = 0.20e-6;
+        %mientras mas grande R1, 
+        %mas cerca del eje imaginario
+    case 6
+        %sexto caso,Polos reales iguales
+        R1 =4.7e3; R2 =10e3;
+        C1 = 10e-6; C2 = 10e-6;
+    
 end
 a = 1/(R1*R2*C1*C2);
 b = (R1+R2)/(R1*R2*C1);
