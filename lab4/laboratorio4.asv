@@ -60,5 +60,4 @@ p = pole(G1);
 
 step(5*G1);
 %pzplot(G1);
-%[Wn, Z]=damp(G1);  %retorna polos, tr, frecuencia, constante del tiempo
-
+%damp(G1);      %retorna dato de ceros t
